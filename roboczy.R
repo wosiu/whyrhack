@@ -67,11 +67,13 @@ orange_grp = orange_4 %>% group_by(zoneid, time16) %>% summarise(mean_intensity=
 
 # pogrupowanie po strefie (orange), godzinie
 # todo add zone
-delay_zone <- bus_all %>% group_by(time16, zoneid %>% summarise(mean_deley=mean(delay_num))
+delay_zone <- bus_all %>% group_by(time16, zoneid) %>% summarise(mean_deley=mean(delay_num))
                                    
 # inner data
-joined = deley_zone %>% inner_join(bus_all, by = c("zoneid" = "zoneid", "time16" = "time16"))
+joined = delay_zone %>% inner_join(bus_all, by = c("zoneid" = "zoneid", "time16" = "time16"))
 
+
+# ==========================
 
 # TODO:
 
